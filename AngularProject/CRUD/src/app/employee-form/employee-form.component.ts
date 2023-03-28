@@ -7,5 +7,7 @@ import { CRUDService } from '../services/crud.service';
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent {
-  constructor(private crudSerive:CRUDService){}
+
+  constructor(private crudSerice:CRUDService){}
+
 }

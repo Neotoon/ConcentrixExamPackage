@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CRUDService } from '../services/crud.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent {
+
+  constructor(private crudSerice:CRUDService){}
 
 }
