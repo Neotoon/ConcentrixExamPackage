@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CRUDService } from '../services/crud.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent {
-
+  constructor(private crudSerive:CRUDService){}
 }
