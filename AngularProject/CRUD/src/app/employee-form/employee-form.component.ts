@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { CRUDService } from '../services/crud.service';
 
 @Component({
@@ -7,7 +8,18 @@ import { CRUDService } from '../services/crud.service';
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent {
+  //@ts-ignore
+  employeeForm:FormGroup
 
-  constructor(private crudSerice:CRUDService){}
+  constructor(private crudSerice:CRUDService, private formBuilder:FormBuilder){}
 
+  createProductForm(){
+    this.employeeForm=this.formBuilder.group({
+      'name':[''],
+      'address':[''],
+      'email':[''],
+      'contactnumber':[''],
+      'contact':[''],
+    })
+  }
 }

@@ -74,6 +74,5 @@ export class EmployeeListComponent {
   }
 
   deleteEmployee(params:any){
-    console.log('latere')
   }
 }
