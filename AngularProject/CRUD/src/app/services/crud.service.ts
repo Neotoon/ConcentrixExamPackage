@@ -32,4 +32,9 @@ export class CRUDService {
     const url='http://localhost/web_api/update.php';
     return this.httpClient.post<HttpResponse>(url,data).pipe(map(data=>data))
   }
+
+  deleteEmployee(employeeId: any):Observable<HttpResponse>{
+    const url='http://localhost/web_api/delete.php?id='+employeeId;
+    return this.httpClient.get<HttpResponse>(url).pipe(map(data=>data))
+  }
 }

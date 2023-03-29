@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { CRUDService } from '../services/crud.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class EmployeeListComponent {
     { field: 'p_name', headerName:'Employee Name', sortable:true,headerClass:'header-cell'},
     { field: 'p_address', headerName:'Address', sortable:true,headerClass:'header-cell'},
     { field: 'p_email', headerName:'Email Address', sortable:true,headerClass:'header-cell'},
-    { field: 'p_contact', headerName:'Contact Number', sortable:true,headerClass:'header-cell'},
+    { field: 'p_contact', headerName:'Contact Number', sortable:true,headerClass:'header-cell',cellRenderer:this.contactCellRender.bind(this)},
     { field: '', headerName:'Actions',width:250,headerClass:'header-cell',cellRenderer:this.actionRender.bind(this)},
   ];
 
@@ -74,5 +75,32 @@ export class EmployeeListComponent {
   }
 
   deleteEmployee(params:any){
+    const that=this;
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        that.crudService.deleteEmployee(params.data.p_id).subscribe(res=>{
+          if(res.result==='success'){
+            this.getEmployeeList()
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+      }
+    })
+  }
+
+  contactCellRender(params:any){
+    return '+'+params.data.p_contact;
   }
 }
