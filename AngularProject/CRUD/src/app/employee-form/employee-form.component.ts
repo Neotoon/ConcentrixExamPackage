@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CRUDService } from '../services/crud.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class EmployeeFormComponent {
   //@ts-ignore
   employeeForm:FormGroup;
 
-  constructor(private crudSerice:CRUDService, private formBuilder:FormBuilder){}
+  constructor(private crudSerice:CRUDService, 
+    private formBuilder:FormBuilder,
+    private router:Router){}
 
   ngOnInit():void{
     this.createEmployeeForm();
@@ -28,5 +31,22 @@ export class EmployeeFormComponent {
 
   createEmployee(values : any,isUpdate : any){
     console.log(values);
+    let formData =new FormData();
+    formData.append('name',values.name);
+    formData.append('address',values.address);
+    formData.append('email',values.email);
+    formData.append('contact',values.contact);
+
+    if(isUpdate){
+      //updating
+    }
+    else
+    {
+      this.crudSerice.createEmployee(formData).subscribe(res=>{
+        if (res.result==='success'){
+          this.router.navigate(['/crud/employee-list']);
+        }
+      });
+    }
   }
 }

@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent} from '@angular/common/http';
+import { HttpResponse} from 'src/app/crud/models/http-response';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,5 +15,10 @@ export class CRUDService {
     //const url=environment.API_EndPoint + 'view.php';
     const url='http://localhost/web_api/view.php';
     return this.httpClient.get(url).pipe(map(data=>data))
+  }
+
+  createEmployee(data:any): Observable<HttpResponse> {
+    const url='http://localhost/web_api/create.php';
+    return this.httpClient.post<HttpResponse>(url,data).pipe(map(data=>data))
   }
 }
