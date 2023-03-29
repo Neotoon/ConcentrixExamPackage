@@ -19,10 +19,10 @@ export class EmployeeFormComponent {
 
   createEmployeeForm(){
     this.employeeForm=this.formBuilder.group({
-      'name':['',Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(50)])],
-      'address':['',Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(500)])],
-      'email':['',Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(50)])],
-      'contact':['',Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(50)])],
+      'name':['',Validators.compose([Validators.required])],
+      'address':['',Validators.compose([Validators.required])],
+      'email':['',Validators.compose([Validators.required])],
+      'contact':['',Validators.compose([Validators.required])],
     })
   }
 
