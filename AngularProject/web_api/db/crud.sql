@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 05:36 PM
+-- Generation Time: Mar 29, 2023 at 07:01 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -40,12 +40,11 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`p_id`, `p_name`, `p_address`, `p_email`, `p_contact`) VALUES
-(2, 'John Doe', 'Ap #388-7382 Sem St', 'vitae@protonmail.ca', '(878) 510-3422'),
+(1, 'John Doe', 'Ap #388-7382 Sem St', 'vitae@protonmail.ca', '(878) 510-3422'),
 (3, 'Josephine Patel', 'P.O. Box 894, 6602 Sed Street', 'enim@outlook.ca', '1-880-858-4257'),
 (4, 'Ila Ward', 'P.O. Box 580, 711 Nec, Street', 'aliquet@protonmail.edu', '(221) 108-7786'),
 (5, 'Dana Randal', 'Ap #415-4942 Leo. Av.', 'justo.eu@protonmail.couk', '1-979-214-1129'),
-(6, 'Lars Sargent', 'P.O. Box 675, 8766 Dis Rd.', 'urna.ut.tincidunt@google.couk', '1-725-415-4822'),
-(9, 'Apple iPhone 11 Pro', 'Next generation iPhone', '1099', '222');
+(6, 'Lars Sargenta', 'P.O. Box 675, 8766 Dis Rd.', 'urna.ut.tincidunt@google.couk', '1-725-415-4822');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +64,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
