@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-6 p-5" >
-        <form [formGroup]="employeeForm" (ngSubmit)="createEmployee(employeeForm.value,false)">
+        <form [formGroup]="employeeForm" (ngSubmit)="createEmployee(employeeForm.value)">
             <div class="mb-3">
               <label for="employee-name" class="form-label">Employee Name</label>
               <input 
@@ -55,7 +55,7 @@
                   'is-valid':!employeeForm.controls['contact'].errors
                 }">
               </div>
-            <button type="submit" class="btn btn-primary">Create Employee</button>
+            <button type="submit" class="btn btn-primary">{{buttonText}}</button>
           </form>
     </div>
 </div>

@@ -11,6 +11,8 @@ import { CRUDService } from '../services/crud.service';
 export class EmployeeFormComponent {
   //@ts-ignore
   employeeForm:FormGroup;
+  employeeId:any;
+  buttonText='Create Employee'
 
   constructor(private crudSerice:CRUDService, 
     private formBuilder:FormBuilder,
@@ -38,7 +40,7 @@ export class EmployeeFormComponent {
     })
   }
 
-  createEmployee(values : any,isUpdate : any){
+  createEmployee(values : any){
     console.log(values);
     let formData =new FormData();
     formData.append('name',values.name);
@@ -46,25 +48,37 @@ export class EmployeeFormComponent {
     formData.append('email',values.email);
     formData.append('contact',values.contact);
 
-    if(isUpdate){
+    if(this.employeeId){
       //updating
+      formData.append('id',this.employeeId);
+      this.crudSerice.updateEmployeeDetails(formData).subscribe(res=>{
+        if (res.result==='success'){
+          this.navigateTo('/crud/employee-list')
+        }
+      })
     }
     else
     {
       this.crudSerice.createEmployee(formData).subscribe(res=>{
         if (res.result==='success'){
-          this.router.navigate(['/crud/employee-list']);
+          this.navigateTo('/crud/employee-list')
         }
       });
     }
   }
 
   loadEmployeeDetails(employeeId:any){
+    this.buttonText='update Employee'
       this.crudSerice.loadEmployeeDetails(employeeId).subscribe(res=>{
         this.employeeForm.controls['name'].setValue(res.p_name);
         this.employeeForm.controls['address'].setValue(res.p_address);
         this.employeeForm.controls['email'].setValue(res.p_email);
         this.employeeForm.controls['contact'].setValue(res.p_contact);
+        this.employeeId= res.p_id
       })
+  }
+
+  navigateTo(route:any){
+    this.router.navigate([route]);
   }
 }

@@ -27,4 +27,9 @@ export class CRUDService {
     const url='http://localhost/web_api/view_one.php?id='+employeeId;
     return this.httpClient.get<Employee>(url).pipe(map(data=>data))
   }
+
+  updateEmployeeDetails(data:any): Observable<HttpResponse>{
+    const url='http://localhost/web_api/update.php';
+    return this.httpClient.post<HttpResponse>(url,data).pipe(map(data=>data))
+  }
 }
