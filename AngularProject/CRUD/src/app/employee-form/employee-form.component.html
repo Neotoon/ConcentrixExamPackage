@@ -1,12 +1,9 @@
 <div class="row">
     <div class="col-6 p-5">
-        <form [formGroup]="employeeForm">
+        <form>
             <div class="mb-3">
               <label for="employee-name" class="form-label">Employee Name</label>
               <input formControlName="name" type="text" class="form-control" id="employee-name" aria-describedby="emailHelp">
-            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.controls['name'].errors?.required">
-                Name is required.
-            </div>
             </div>
             <div class="mb-3">
               <label for="employee-address" class="form-label">Address</label>
