@@ -8,6 +8,7 @@ import { EmployeeListComponent } from '../employee-list/employee-list.component'
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     CRUDRoutingModule,
-    AgGridModule
+    AgGridModule,
+    ReactiveFormsModule
   ]
 })
 export class CRUDModule { }
