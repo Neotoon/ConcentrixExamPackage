@@ -68,7 +68,7 @@ export class EmployeeFormComponent {
   }
 
   loadEmployeeDetails(employeeId:any){
-    this.buttonText='update Employee'
+    this.buttonText='Update Employee'
       this.crudSerice.loadEmployeeDetails(employeeId).subscribe(res=>{
         this.employeeForm.controls['name'].setValue(res.p_name);
         this.employeeForm.controls['address'].setValue(res.p_address);
