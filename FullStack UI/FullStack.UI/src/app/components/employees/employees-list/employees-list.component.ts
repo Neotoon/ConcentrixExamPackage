@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
+import { EmployeesService } from 'src/app/services/employees.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -7,30 +8,32 @@ import { Employee } from 'src/app/models/employee.model';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent {
-  employees: Employee[]=[
-    {
-      id:'1',
-      name:'John Doe',
-      email: 'john.doe@email.com',
-      phone: 998877665,
-      address: 'Human Resources'
-    },
-    {
-      id:'2',
-      name:'Sameer Saini',
-      email: 'sameer.saini@email.com',
-      phone: 789789789,
-      address: 'Information Technology'
-    },
-    {
-      id:'3',
-      name:'Samantha James',
-      email: 'samantha.james@email.com',
-      phone: 8787878787,
-      address: 'Accounting'
-    }
-  ]
 
-  ngOninit():void{
+  employees: any=[];
+  
+  employeeListSubscribe:any;
+  rowData:any = [];
+
+  constructor(private employeesService:EmployeesService){}
+
+  getEmployeeList(){
+    this.employeeListSubscribe=this.employeesService.getAllEmployees().subscribe(res=>{
+      this.employees=res;
+      this.rowData=res;
+    })
+  }
+
+  ngOninit(): void{
+    this.getEmployeeList()
+    // this.employeesService.getAllEmployees()
+    // .subscribe({
+    //   next: (Employees)=>{
+    //     console.log(Employees);
+    //     //this.employees=employees
+    //   },
+    //   error:(response)=>{
+    //     console.log(response);
+    //   }
+    // })
   }
 }
