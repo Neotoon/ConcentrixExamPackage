@@ -14,7 +14,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<FullStackDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FullStackConnectionString")));
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

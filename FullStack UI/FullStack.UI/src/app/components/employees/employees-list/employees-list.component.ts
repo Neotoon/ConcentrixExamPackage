@@ -16,7 +16,7 @@ export class EmployeesListComponent {
     .subscribe({
       next: (employees)=>{
         //console.log(employees);
-        //this.employees=employees
+        this.employees=employees
       },
       error:(response)=>{
        console.log(response);
