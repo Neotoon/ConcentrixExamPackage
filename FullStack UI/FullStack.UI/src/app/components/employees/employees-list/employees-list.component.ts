@@ -8,32 +8,22 @@ import { EmployeesService } from 'src/app/services/employees.service';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent {
+  employees: Employee[]=[];
 
-  employees: any=[];
-  
-  employeeListSubscribe:any;
-  rowData:any = [];
+  constructor(private employeesService:EmployeesService){
 
-  constructor(private employeesService:EmployeesService){}
-
-  getEmployeeList(){
-    this.employeeListSubscribe=this.employeesService.getAllEmployees().subscribe(res=>{
-      this.employees=res;
-      this.rowData=res;
+    this.employeesService.getAllEmployees()
+    .subscribe({
+      next: (employees)=>{
+        //console.log(employees);
+        //this.employees=employees
+      },
+      error:(response)=>{
+       console.log(response);
+      }
     })
   }
 
   ngOninit(): void{
-    this.getEmployeeList()
-    // this.employeesService.getAllEmployees()
-    // .subscribe({
-    //   next: (Employees)=>{
-    //     console.log(Employees);
-    //     //this.employees=employees
-    //   },
-    //   error:(response)=>{
-    //     console.log(response);
-    //   }
-    // })
   }
 }

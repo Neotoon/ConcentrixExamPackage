@@ -1,5 +1,6 @@
 using FullStack.API.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Security.AccessControl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<FullStackDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FullStackConnectionString")));
+
 
 var app = builder.Build();
 
