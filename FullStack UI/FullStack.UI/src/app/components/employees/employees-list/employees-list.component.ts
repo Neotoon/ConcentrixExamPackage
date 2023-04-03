@@ -13,24 +13,21 @@ export class EmployeesListComponent {
       name:'John Doe',
       email: 'john.doe@email.com',
       phone: 998877665,
-      salary: 60000,
-      department: 'Human Resources'
+      address: 'Human Resources'
     },
     {
       id:'2',
       name:'Sameer Saini',
       email: 'sameer.saini@email.com',
       phone: 789789789,
-      salary: 70000,
-      department: 'Information Technology'
+      address: 'Information Technology'
     },
     {
       id:'3',
       name:'Samantha James',
       email: 'samantha.james@email.com',
       phone: 8787878787,
-      salary: 80000,
-      department: 'Accounting'
+      address: 'Accounting'
     }
   ]
 
