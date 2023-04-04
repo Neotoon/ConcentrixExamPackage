@@ -9,7 +9,7 @@
                <th>Address</th>
                <th>Email</th>
                <th>Phone</th> 
-       
+               <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                 <td>{{employee.address}}</td>
                 <td>{{employee.email}}</td>
                 <td>{{employee.phone}}</td>
-               
+                <td><a [routerLink]="['/employees','edit',employee.id]">View</a></td>
             </tr>
         </tbody>
     </table>
